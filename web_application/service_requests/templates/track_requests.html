@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Service Requests</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            transition: transform 0.5s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+        }
+        .card-body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            {% for request in service_requests %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ request.request_type }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Status: {{ request.status }}</p>
+                            <p class="card-text">Details: {{ request.details }}</p>
+                            <!-- <p class="card-text"><a href="{{ MEDIA_URL }}{{ request.attachment }}">Attachment</a></p> -->
+                            <p class="card-text">Submitted At: {{ request.submitted_at }}</p>
+                            <p class="card-text">Resolved At: {{ request.resolved_at }}</p>
+                            <p class="card-text">User Profile: {{ request.user_id }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Optional: jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Optional: Popper.js, required for Bootstrap's JavaScript plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

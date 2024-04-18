@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request Submission</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add shadow */
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-3px); /* Add 3D effect on hover */
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        .btn-primary {
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Service Request Submission</h2>
+                        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_request_type">Request Type:</label>
+                                {{ form.request_type }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_details">Details:</label>
+                                {{ form.details }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_attachment">Attachment:</label>
+                                {{ form.attachment }}
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional: jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Optional: Popper.js, required for Bootstrap's JavaScript plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
