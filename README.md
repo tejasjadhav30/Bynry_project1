@@ -13,7 +13,8 @@ To run this application locally, follow these steps:
    ```
 2. Navigate to the project directory:
    ```
-   cd Simple-Django-Application
+   cd Bynry_project1
+
    ```
 3. Install dependencies:
    ```
